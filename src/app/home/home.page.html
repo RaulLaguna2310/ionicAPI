@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item button details lines="inset" ngFor="let film of (films | aync)?.results" (click)="openDetails(film)">
+    <ion-item button detail lines="inset" *ngFor="let film of (films | async)?.results" (click)="openDetails(film)">
     {{ film.title }}
     </ion-item>
   </ion-list>

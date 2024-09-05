@@ -12,6 +12,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
+  films: Observable<any> | undefined;
+
   constructor(private router: Router, private http: HttpClient, public toastController: ToastController) {}
 
   ngOnInit(){
@@ -20,7 +22,7 @@ export class HomePage implements OnInit {
       );
   }
 
-  async exibirErro(erro){
+  async exibirErro(erro: any){
     const toast = await this.toastController.create({
       message: 'Erro ao consultar a API' + erro.status + ': ' + erro.message,
       duration: 4000,
@@ -32,9 +34,9 @@ export class HomePage implements OnInit {
     return null;
   }
 
-  openDetails(film){
-    const split = film.url.split('/')
-    const filmId = split[5]
+  openDetails(film: any){
+    const split = film.url.split('/');
+    const filmId = split[5];
     this.router.navigateByUrl(`/filme-detalhe/${filmId}`)
   }
 }

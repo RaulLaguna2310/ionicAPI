@@ -8,13 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./filme-detalhe.page.scss'],
 })
 export class FilmeDetalhePage implements OnInit {
+
   film: any;
 
   constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.http.get(`https://swapi.dev/api/film/${id}`).subscribe(res => {
+    this.http.get(`https://swapi.dev/api/films/${id}`).subscribe(res => {
       this.film = res;
     });
   }
